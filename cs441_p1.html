@@ -7,22 +7,28 @@
 </head>
 <body>
 <form id="cs441p1_form">
-	<table id="cs441p1_ff">
+	<table id="cs441p1_table">
 		<tr>
-			<td colspan="2" id="cs441p1_ffa">Booth’s Multiplier Calculator</td>
+			<th class="cs441p1_tspan" id="cs441p1_thead">Booth’s Algorithm Calculator (8-Bit)</th>
+			<td class="cs441p1_tspan">For more information on Booth's Algorithm and this calculator, go HERE.</td>
 		</tr>
 		<tr>
-			<td id="cs441p1_ffl">Variable X:  </td>
-			<td id="cs441p1_ffr"><input type="text" name="cs441p1varx" /></td>
+			<td id="cs441p1_tleft">Variable X:  </td>
+			<td id="cs441p1_tright">
+				<input type="text" name="cs441p1varx" value="decimal number" />
+			</td>
 		</tr>
 		<tr>
-			<td id="cs441p1_ffl">Variable Y:  </td>
-			<td id="cs441p1_ffr"><input type="text" name="cs441p1vary" /></td>
+			<td id="cs441p1_tleft">Variable Y:  </td>
+			<td id="cs441p1_tright">
+				<input type="text" name="cs441p1vary" value="decimal number" />
+			</td>
 		</tr>
 		<tr>
-			<td colspan="2" id="cs441p1_ffa">
+			<td class="cs441p1_tspan">
 				<button type="submit" onclick="cs441p1_submit()" id="cs441p1_bsub">Submit</button>
 			</td>
+			<td>
 		</tr>
 	</table>
 </form>
