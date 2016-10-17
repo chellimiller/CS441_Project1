@@ -3,22 +3,25 @@
 	border-width: 1px;
 	border-color: #000000;
 	padding: 10px;
+	width: 500px;
 }
-#cs441p1_ff {
+#cs441p1_table {
 	border: none;
 	width:40%;
 	margin-left:30%;
 	margin-right:30%;
 }
-#cs441p1_ffl {
+#cs441p1_tleft {
 	font-weight: bold;
 	text-align: left;
 }
-#cs441p1_ffr {
+#cs441p1_tright {
 	text-align: right;
 }
-#cs441p1_ffa {
+#cs441p1_thead {
 	text-align: center;
+	font-weight: bold;
+	font-size: 150%;
 }
 #cs441p1_bsub {
 	background-color: #000000;
@@ -26,4 +29,13 @@
 	color: white;
 	padding: 5px;
 	font-weight: bold;
+}
+
+.cs441p1_tspan {
+	text-align: center;
+	column-span: 2; /* W3C */
+	-webkit-column-span: 2; /* Safari & Chrome */
+	-moz-column-span: 2; /* Firefox */
+	-ms-column-span: 2; /* Internet Explorer */
+	-o-column-span: 2; /* Opera */
 }
