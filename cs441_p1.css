@@ -1,0 +1,29 @@
+#cs441p1_form {
+	border-style: dotted;
+	border-width: 1px;
+	border-color: #000000;
+	padding: 10px;
+}
+#cs441p1_ff {
+	border: none;
+	width:40%;
+	margin-left:30%;
+	margin-right:30%;
+}
+#cs441p1_ffl {
+	font-weight: bold;
+	text-align: left;
+}
+#cs441p1_ffr {
+	text-align: right;
+}
+#cs441p1_ffa {
+	text-align: center;
+}
+#cs441p1_bsub {
+	background-color: #000000;
+	border: none;
+	color: white;
+	padding: 5px;
+	font-weight: bold;
+}
