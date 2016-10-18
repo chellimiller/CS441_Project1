@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Booth's Multiplier Calculator</title>
-<link rel="stylesheet" href="https://chellimiller.github.io/CS441_Project1/cs441_p1.css">
-<script type="text/javascript" src="https://chellimiller.github.io/CS441_Project1/cs441_p1.js"></script>		
-</head>
-<body>
-<div id="cs441p1_fwrap">
-	<form id="cs441p1_form">
-		<table>
-			<tr>
-				<td class="cs441p1_tleft">Multiplicand:</td>
-				<td class="cs441p1_tright"><input type="text"></td>
-			</tr>
-			<tr>
-				<td id="cs441p1_tleft">Multiplier</td>
-				<td id="cs441p1_tright"><input type="text"></td>
-			</tr>
-		</table>	
-	</form>
-	<button onclick="cs441p1_submit()">Submit</button>
-	<p id="cs441p1_output">
-	</p>
-</div>
-</body>
+	<head>
+		<title>Booth's Algorithm Calculator</title>
+		<link rel="stylesheet" href="https://chellimiller.github.io/CS441_Project1/cs441_p1.css">
+		<script type="text/javascript" src="https://chellimiller.github.io/CS441_Project1/cs441_p1.js"></script>		
+	</head>
+	<body>
+		<div id="cs441p1_form_wrapper">
+			<h1>Booth's Algorithm Calculator</h1>
+			<p>For more information on this calculator, please visit 
+				<a id="cs441p1_link" href="http://www.chellimiller.com/">chellimiller.com</a>
+			</p>
+			<form id="cs441p1_form">
+				<table>
+					<tr>
+						<td class="cs441p1_tleft">Multiplicand:</td>
+						<td class="cs441p1_tright"><input type="text"></td>
+					</tr>
+					<tr>
+						<td class="cs441p1_tleft">Multiplier:</td>
+						<td class="cs441p1_tright"><input type="text"></td>
+					</tr>
+				</table>	
+			</form>
+			<button onclick="cs441p1_submit()">Submit</button><br />
+			<button onclick="cs441p1_reset()">Reset</button><br />
+			<div id="cs441p1_output"></div>
+		</div>
+	</body>
 </html>
