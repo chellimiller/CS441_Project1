@@ -4,21 +4,25 @@
 		<title>Booth's Algorithm Calculator</title>
 		<link rel="stylesheet" href="https://chellimiller.github.io/CS441_Project1/cs441_p1.css">
 		<script type="text/javascript">
-			function cs441p1_print(output) {
+			window.x; window.y;
+			window.b = 8;
+			window.output = [];
+			function cs441p1_print() {
 				document.getElementById("cs441p1_output").innerHTML = output;
 			}
+			
 			function cs441p1_submit() {
 				var input = document.getElementById("cs441p1_form").elements;
-				var x = input[0].value;
-				var y = input[1].value;
-				var b = 8;
-				cs441p1_print("Multiplicand: " + x + "<br />" +
-					"Multiplier:  " + y + "<br />" +
-					"These are " + b + "-bit binary numbers.");
+				x = input[0].value;
+				y = input[1].value;
+				output = [x,y,b];
+				cs441p1_print();
 			}
 
 			function cs441p1_reset() {
 				document.getElementById("cs441p1_form").reset();
+				output.length = 0;
+				document.getElementById("cs441p1_output").innerHTML = "";
 			}
 		</script>
 		<style>
@@ -43,8 +47,8 @@
 					</tr>
 				</table>	
 			</form>
-			<button onclick="cs441p1_submit()">Submit</button><br />
-			<button onclick="cs441p1_reset()">Reset</button><br />
+			<button onclick="cs441p1_submit()">Submit</button>
+			<button onclick="cs441p1_reset()">Reset</button>
 			<div id="cs441p1_output"></div>
 		</div>
 	</body>
