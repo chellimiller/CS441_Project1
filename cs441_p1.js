@@ -62,7 +62,7 @@ function cs441p1_submit() {
 	//cs441p1_verify(x,y,bits);
 	cs441p1_print("TESTING");
 }
-
+/*
 function cs441p1_submit() {
 	document.getElementById("cs441p1_form").reset();
-}
+}*/
