@@ -1,41 +1,33 @@
-#cs441p1_form {
+#cs441p1_fwrap {
 	border-style: dotted;
 	border-width: 1px;
 	border-color: #000000;
 	padding: 10px;
 	width: 500px;
 }
-#cs441p1_table {
-	border: none;
-	width:40%;
-	margin-left:30%;
-	margin-right:30%;
-}
-#cs441p1_tleft {
-	font-weight: bold;
-	text-align: left;
-}
-#cs441p1_tright {
-	text-align: right;
-}
-#cs441p1_thead {
+#cs441p1_fwrap h1 {
 	text-align: center;
 	font-weight: bold;
 	font-size: 150%;
 }
-#cs441p1_bsub {
+#cs441p1_fwrap table {
+	border: none;
+	width:50%;
+	margin-left:25%;
+	margin-right:25%;
+}
+#cs441p1_fwrap .cs441p1_tleft {
+	font-weight: bold;
+	text-align: left;
+	width: 40%;
+}
+#cs441p1_fwrap .cs441p1_tright {
+	text-align: right;
+}
+#cs441p1_fwrap button {
 	background-color: #000000;
 	border: none;
 	color: white;
 	padding: 5px;
 	font-weight: bold;
-}
-
-.cs441p1_tspan {
-	text-align: center;
-	column-span: 2; /* W3C */
-	-webkit-column-span: 2; /* Safari & Chrome */
-	-moz-column-span: 2; /* Firefox */
-	-ms-column-span: 2; /* Internet Explorer */
-	-o-column-span: 2; /* Opera */
 }
