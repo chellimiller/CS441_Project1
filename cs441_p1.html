@@ -8,31 +8,18 @@
 <body>
 <div id="cs441p1_fwrap">
 	<form id="cs441p1_form">
-		<table id="cs441p1_table">
+		<table>
 			<tr>
-				<th class="cs441p1_tspan" id="cs441p1_thead">Booth’s Algorithm Calculator (8-Bit)</th>
-				<td class="cs441p1_tspan">For more information on Booth's Algorithm and this calculator, go HERE.</td>
+				<td class="cs441p1_tleft">Multiplicand:</td>
+				<td class="cs441p1_tright"><input type="text"></td>
 			</tr>
 			<tr>
-				<td id="cs441p1_tleft">Variable X:  </td>
-				<td id="cs441p1_tright">
-					<input type="text" name="cs441p1_x">
-				</td>
-			</tr>
-			<tr>
-				<td id="cs441p1_tleft">Variable Y:  </td>
-				<td id="cs441p1_tright">
-					<input type="text" name="cs441p1_y">
-				</td>
-			</tr>
-			<tr>
-				<td class="cs441p1_tspan">
-					<button type="submit" onclick="cs441p1_submit();return false;" id="cs441p1_bsub">Submit</button>
-				</td>
-				<td>
+				<td id="cs441p1_tleft">Multiplier</td>
+				<td id="cs441p1_tright"><input type="text"></td>
 			</tr>
 		</table>	
 	</form>
+	<button onclick="cs441p1_submit()">Submit</button>
 	<p id="cs441p1_output">
 	</p>
 </div>
