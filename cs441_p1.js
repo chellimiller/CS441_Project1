@@ -48,11 +48,11 @@ function cs441p1_verify(a, b, bit) {
 
 function cs441p1_submit() {
 	var input = document.getElementById("cs441p1_form").elements;
-	var x = input.namedItem("cs441p1_x");
-	var y = input.namedItem("cs441p1_y");
+	var x = input.namedItem("cs441p1_x").value;
+	var y = input.namedItem("cs441p1_y").value;
 	var bits;
-	if (input.namedItem("cs441p1_bit")) {
-		bits = input.namedItem("cs441p1_bit");
+	if (input.namedItem("cs441p1_bit").value) {
+		bits = input.namedItem("cs441p1_bit").value;
 	} else {
 		bits = 4;
 	}
