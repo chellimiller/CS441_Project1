@@ -2,6 +2,10 @@ function cs441p1_print(output) {
 	document.getElementById("cs441p1_output").innerHTML = output;
 }
 
+function cs441p1_warn(message) {
+	alert(message);
+}
+
 function cs441p1_convert(decimal, bit) {
 	var binary;
 	
@@ -42,13 +46,17 @@ function cs441p1_verify(a, b, bit) {
 	} else if (b < min || b > max) {
 		cs441p1_print("The second value is out of range!");
 	} else {
-		cs441p1_booth(a,b);
+		//cs441p1_booth(a,b);
+		cs441p1_print("The first value:   " + a + "<br />" +
+			      "The second value:  " + b + "<br />" +
+			      "These are " + bit + "-bit binary numbers.");
 	}
 }
 
 function cs441p1_submit() {
 	var input = document.getElementById("cs441p1_form");
 	var i;
+	var bits = 4;
 	for (i = 0; i < input.length; i++) {
 		var item = input.elements[i];
 		if (item.name == "cs441p1varx") {
@@ -56,9 +64,8 @@ function cs441p1_submit() {
 		} else if (item.name == "cs441p1vary") {
 			var y = item.value;
 		} else if (item.name == "cs441p1bits") {
-			var bits = item.value;
+			bits = item.value;
 		}
 	}
-	//cs441p1_verify(x,y,bits);
-	cs441p1_print("TESTING");
+	cs441p1_verify(x,y,bits);
 }
