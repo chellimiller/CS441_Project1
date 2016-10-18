@@ -47,9 +47,6 @@ function cs441p1_verify(a, b, bit) {
 		cs441p1_print("The second value is out of range!");
 	} else {
 		//cs441p1_booth(a,b);
-		cs441p1_print("The first value:   " + a + "<br />" +
-			      "The second value:  " + b + "<br />" +
-			      "These are " + bit + "-bit binary numbers.");
 	}
 }
 
@@ -67,5 +64,8 @@ function cs441p1_submit() {
 			bits = item.value;
 		}
 	}
-	cs441p1_verify(x,y,bits);
+	cs441p1_print("The first value:   " + x + "<br />" +
+		"The second value:  " + y + "<br />" +
+		"These are " + bits + "-bit binary numbers.");
+	//cs441p1_verify(x,y,bits);
 }
