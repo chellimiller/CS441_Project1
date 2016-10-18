@@ -1,11 +1,7 @@
 function cs441p1_print(output) {
 	document.getElementById("cs441p1_output").innerHTML = output;
 }
-
-function cs441p1_warn(message) {
-	alert(message);
-}
-
+/*
 function cs441p1_convert(decimal, bit) {
 	var binary;
 	
@@ -48,24 +44,19 @@ function cs441p1_verify(a, b, bit) {
 	} else {
 		//cs441p1_booth(a,b);
 	}
-}
+}*/
 
 function cs441p1_submit() {
-	var input = document.getElementById("cs441p1_form");
-	var i;
-	var bits = 4;
-	for (i = 0; i < input.length; i++) {
-		var item = input.elements[i];
-		if (item.name == "cs441p1varx") {
-			var x = item.value;
-		} else if (item.name == "cs441p1vary") {
-			var y = item.value;
-		} else if (item.name == "cs441p1bits") {
-			bits = item.value;
-		}
+	var input = document.getElementById("cs441p1_form").elements;
+	var x = input.namedItem("cs441p1_x");
+	var y = input.namedItem("cs441p1_y");
+	var bits;
+	if (input.namedItem("cs441p1_bit")) {
+		bits = input.namedItem("cs441p1_bit");
+	} else {
+		bits = 4;
 	}
 	cs441p1_print("The first value:   " + x + "<br />" +
 		"The second value:  " + y + "<br />" +
 		"These are " + bits + "-bit binary numbers.");
-	//cs441p1_verify(x,y,bits);
 }
