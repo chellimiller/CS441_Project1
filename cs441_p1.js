@@ -46,7 +46,7 @@ function cs441p1_dec2bin(decimal) {
 	
 	if (decimal < 0) {
 		sign = 1;
-		decimal = Math.abs(decimal - 1);
+		decimal = Math.abs(decimal + 1);
 	} else {
 		sign = 0;
 	}
