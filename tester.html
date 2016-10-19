@@ -6,21 +6,25 @@
 		<script type="text/javascript">
 			window.x; window.y;
 			window.b = 8;
-			window.output = [];
+			window.data = [];
+			data.length = 6;
 			function cs441p1_print() {
-				document.getElementById("cs441p1_output").innerHTML = output;
+				document.getElementById("cs441p1_output").innerHTML = data;
 			}
 			
 			function cs441p1_submit() {
 				var input = document.getElementById("cs441p1_form").elements;
 				x = input[0].value;
 				y = input[1].value;
-				output = [x,y,b];
+				data[0] = b;
+				data[2] = x;
+				data[4] = y;
 				cs441p1_print();
 			}
 			function cs441p1_reset() {
 				document.getElementById("cs441p1_form").reset();
-				output.length = 0;
+				data.length = 0;
+				data.length = 6;
 				document.getElementById("cs441p1_output").innerHTML = "";
 			}
 		</script>
