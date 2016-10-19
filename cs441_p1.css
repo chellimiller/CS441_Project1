@@ -1,54 +1,57 @@
 #cs441p1_form_wrapper {
-	font-family:   "Trebuchet MS", Helvetica, sans-serif;
-	text-align:    center;
-	border-style:  dotted;
-	border-width:  1px;
-	border-color:  #000000;
-	padding:       10px;
-	width:         500px;
+	font-family:     "Trebuchet MS", Helvetica, sans-serif;
+	text-align:      center;
+	border-style:    dotted;
+	border-width:    1px;
+	border-color:    #000000;
+	padding:         10px;
+	width:           500px;
 }
 
 #cs441p1_form_wrapper h1 {
-	color:         #FF0538;
-	font-weight:   bold;
-	font-size:     150%;
+	color:           #FF0538;
+	font-weight:     bold;
+	font-size:       150%;
 }
 
 #cs441p1_form_wrapper table {
-	border:         none;
-	width:          50%;
-	margin-left:    25%;
-	margin-right:   25%;
-  margin-bottom:  15px;
-  margin-top:     15px;
+	border:           none;
+	width:            50%;
+	margin-left:      25%;
+	margin-right:     25%;
+	margin-bottom:    15px;
+	margin-top:       15px;
 }
 #cs441p1_form_wrapper td {
-  padding:        10px;
+	padding:          10px;
 }
 #cs441p1_form_wrapper .cs441p1_tleft {
-	font-weight:    bold;
-	text-align:     right;
-	width:          25%;
+	font-weight:      bold;
+	text-align:       right;
+	width:            25%;
 }
 #cs441p1_form_wrapper .cs441p1_tright {
-	text-align:     left;
+	text-align:       left;
 }
 
 #cs441p1_form_wrapper button {
-	background-color:    #000000;
-	border:              none;
-  min-width:           20%;
-  padding:             5px;
-  margin:              5px;
-	color:               #FFFFFF;
-  font-weight:         bold;
+	background-color: #000000;
+	border:           none;
+	min-width:        20%;
+	padding:          5px;
+	margin:           5px;
+	color:            #FFFFFF;
+	font-weight:      bold;
 }
 
 #cs441p1_form_wrapper a {
-	color:           #FF0538;
-	font-weight:     bold;
-	text-decoration: none;
+	color:            #FF0538;
+	font-weight:      bold;
+	text-decoration:  none;
 }
 #cs441p1_form_wrapper a:hover {
-	color:           #000000;
+	color:            #000000;
+}
+#cs441p1_output {
+	padding:          20px;
 }
