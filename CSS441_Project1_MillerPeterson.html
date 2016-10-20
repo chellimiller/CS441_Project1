@@ -2,9 +2,84 @@
 <html>
  <head>
   <title>Booth's Algorithm Calculator</title>
-  <link rel="stylesheet" href="https://chellimiller.github.io/CS441_Project1/cs441_p1.css">
-  <script type="text/javascript">
+  <style>
+body {
+ margin:          30px;
+}
+#cs441p1_form_wrapper {
+ font-family:     "Trebuchet MS", Helvetica, sans-serif;
+ text-align:      center;
+ border-style:    dotted;
+ border-width:    1px;
+ border-color:    #000000;
+ padding:         10px;
+ width:           500px;
+}
 
+#cs441p1_form_wrapper h1 {
+ color:           #FF0538;
+ font-weight:     bold;
+ font-size:       150%;
+}
+
+#cs441p1_form_wrapper table {
+ border:           none;
+ width:            50%;
+ margin-left:      25%;
+ margin-right:     25%;
+ margin-bottom:    15px;
+ margin-top:       15px;
+}
+#cs441p1_form_wrapper td {
+ padding:          10px;
+}
+#cs441p1_form_wrapper .cs441p1_tleft {
+ font-weight:      bold;
+ text-align:       right;
+ width:            25%;
+}
+#cs441p1_form_wrapper .cs441p1_tright {
+ text-align:       left;
+}
+
+#cs441p1_form_wrapper button {
+ background-color: #000000;
+ border:           none;
+ min-width:        20%;
+ padding:          5px;
+ margin:           5px;
+ color:            #FFFFFF;
+ font-weight:      bold;
+}
+
+#cs441p1_form_wrapper a {
+ color:            #FF0538;
+ font-weight:      bold;
+ text-decoration:  none;
+}
+#cs441p1_form_wrapper a:hover {
+ color:            #000000;
+}
+#cs441p1_output {
+ padding:          20px;
+}
+#cs441p1_output table {
+ width:            70%;
+ margin-left:      15%;
+ margin-right:     15%;
+}
+#cs441p1_output .cs441p1_tleft{
+ width:            50%;
+}
+#cs441p1_output .cs441p1_tlhead {
+ color:            #FF0538;
+ width:            50%;
+ font-weight:      bold;
+ text-align:       right;
+ font-size:        125%;
+}
+  </style>
+  <script type="text/javascript">
 window.x; window.y; window.bit; window.set;
 window.data = [];
 data.length = 7;
@@ -18,7 +93,6 @@ data.length = 7;
   6 - Negative multiplier
  */
 window.steps = [];
-
 function cs441p1_print(output) {
  document.getElementById("cs441p1_output").innerHTML = output;
 }
@@ -30,29 +104,50 @@ function cs441p1_error(messages) {
  cs441p1_print(output); 
 }
 function cs441p1_prettyPrint() {
-
  var decbin;
  if (set == 1) {
   decbin = "Binary";
  } else {
   decbin = "Decimal";
  }
-
- var bitset  = "- Settings -<br/>" + data[0] + "-bit Multiplier<br/>Input: " + decbin;
- var outputX = "- Multiplicand -<br/>Decimal: " + data[2] + "<br/>Binary: " + data[3];
- var outputY = "- Multiplier -<br/>Decimal: " + data[4] + "<br/>Binary: " + data[5];
- var outputZ = "- Negative Multiplier -<br/>Binary: " + data[6];
- var e = "<br/><br/>";
- var output = bitset + e + outputX + e + outputY + e + outputZ + e;
+ var t = "<table>";
+ var te = "</table>";
+ var tr = "<tr>";
+ var trn = "</tr><tr>";
+ var tre = "</tr>";
+ var td = "<td>";
+ var tdh = "<td class='cs441p1_tlhead'>";
+ var tdl = "<td class='cs441p1_tleft'>";
+ var tdr = "<td class='cs441p1_tright'>";
+ var tde = "</td>";
+ var tdn = "</td><td>";
  
- var s = 0;
- var step;
- while (s < steps.length) {
-  step =  steps[s] + steps[s+1] + "<br />";
-  s = s + 2;
-  output += step;
+ var out1 = "<h1>-Output-</h1>" + t;
+ var row1 = tr + tdl + "Input:" + tde + tdr + data[0] + "-bit, " + decbin + tde + tre;
+ 
+ var row2a = tr + tdh + "Multiplicand - " + tdn + tde + trn;
+ var row2b = tdl + "Decimal:" + tde + tdr + data[2] + tde + trn;
+ var row2c = tdl + "Binary:" + tde + tdr + data[3] + tde + tre;
+ 
+ var row3a = tr + tdh + "Multiplier - " + tdn + tde + trn;
+ var row3b = tdl + "Decimal:" + tde + tdr + data[4] + tde + trn;
+ var row3c = tdl + "Binary:" + tde + tdr + data[5] + tde + trn;
+ var row3d = tdl + "Two's Complement:" + tde + tdr + data[6] + tde + tre;
+ 
+ var row45 = tr + trn + tdh + "Steps - " + tdn + tde;
+ 
+ var rows15 = out1 + row1 + row2a + row2b + row2c + row3a + row3b + row3c + row3d + row45;
+ 
+ var p = 0;
+ var row6on = "";
+ 
+ while (p < steps.length) {
+  row6on += trn + tdl + steps[p] + tde + tdr + steps[p + 1] + tde;
+  p = p + 2;
  }
-
+ 
+ var output = rows15 + row6on + tre + te;
+ 
  cs441p1_print(output);
 }   
 function cs441p1_dec2bin(decimal) {
@@ -86,8 +181,6 @@ function cs441p1_twosComp(originalBinary) {
  }
  return convertedBinary;
 }
-
-
 function cs441p1_boothAdd(product, multiplier){
  var newProduct; 
  var endBit = bit - 1;
@@ -96,7 +189,6 @@ function cs441p1_boothAdd(product, multiplier){
  var addM = parseInt(multiplier, 2);
  var sumD = addU + addM;
  var sumB = cs441p1_dec2bin(sumD);
-
  if (sumB.length > bit) {
   newProduct = sumB.slice(1) + product.slice(bit);
  } else {
@@ -104,8 +196,6 @@ function cs441p1_boothAdd(product, multiplier){
  }
  return newProduct;
 }
-
-
 function cs441p1_boothsAlgorithm(){
  var i;
  var mX = data[3];
@@ -114,11 +204,9 @@ function cs441p1_boothsAlgorithm(){
  var boothBit = 0;
  var lastBit = bit + bit - 1;
  var negmY = data[6];
-
  // Setup binary for Booth's Algorithm (add 0's or 1's to front)
  for (i = 0; i < bit; i++) {
   product += "0";
-
  }
  product += mX;
  steps.push("Starting Out: ");
@@ -139,20 +227,17 @@ function cs441p1_boothsAlgorithm(){
   boothBit = lastChar;
   product = product[0] + product;
   product = product.slice(0, -1);
-
   steps.push("Shift: ");
   steps.push(product);
  }
   
  steps.push("Final Product (Binary): ");
  steps.push(product);
- 
- var dec;
  if (product[0] == "1") {
-  dec = parseInt(cs441p1_twosComp(product), 2) + 1;
+  var dec = parseInt(cs441p1_twosComp(product), 2) + 1;
   dec = 0 - dec;
  } else {
-  dec = parseInt(product);
+  var dec = parseInt(product, 2);
  }
  steps.push("Final Product (Decimal): ");
  steps.push(dec);
@@ -162,7 +247,6 @@ function cs441p1_verify() {
  var max = Math.pow(2, exp) - 1;
  var min = -1 * Math.pow(2, exp);
  var errors = [];
-
  if (set == 1) {
   //Code for determining binary or decimal input
   //Nothing here, return error
@@ -173,7 +257,6 @@ function cs441p1_verify() {
   data[2] = x;
   data[4] = y;
  }
-
  if (!Number.isInteger(x)) {
   errors.push("The multiplicand should be an integer");
  }
@@ -186,7 +269,6 @@ function cs441p1_verify() {
  if (y < min || y > max) {
   errors.push("The multiplier is out of range");
  }
-
  if (errors.length > 0) {
   cs441p1_error(errors);
   return false;
@@ -201,7 +283,6 @@ function cs441p1_verify() {
   return true;
  }
 }
-
 function cs441p1_submit() {
  var input = document.getElementById("cs441p1_form").elements;
  var xIN = input[0].value;
@@ -224,8 +305,6 @@ function cs441p1_reset() {
  steps = [];
  cs441p1_print("");
 }
-
-
   </script>
  </head>
  <body>
