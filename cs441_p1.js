@@ -28,20 +28,44 @@ function cs441p1_prettyPrint() {
  } else {
   decbin = "Decimal";
  }
- var bitset  = "- Settings -<br/>" + data[0] + "-bit Signed Input<br/>Input: " + decbin;
- var outputX = "- Multiplicand -<br/>Decimal: " + data[2] + "<br/>Binary: " + data[3];
- var outputY = "- Multiplier -<br/>Decimal: " + data[4] + "<br/>Binary: " + data[5];
- var outputZ = "- Negative Multiplier -<br/>Binary: " + data[6];
- var e = "<br/><br/>";
- var output = bitset + e + outputX + e + outputY + e + outputZ + e;
+ var t = "<table>";
+ var te = "</table>";
+ var tr = "<tr>";
+ var trn = "</tr><tr>";
+ var tre = "</tr>";
+ var br = "<br/>";
+ var td = "<td>";
+ var tdl = '<td id=".cs441p1_tleft">';
+ var tdr = '<td id=".cs441p1_tright">';
+ var tde = "</td>";
+ var tdn = "</td><td>";
  
- var s = 0;
- var step;
- while (s < steps.length) {
-  step =  steps[s] + steps[s+1] + "<br />";
-  s = s + 2;
-  output += step;
+ var out1 = "<h1>-Output-</h1>" + t;
+ var row1 = tr + tdl + "Input:" + tde + tdr + data[0] + "-bit" + br + decbin + tde + tre;
+ 
+ var row2a = tr + tdl + "Multiplicand - " + tdn + tde + trn;
+ var row2b = tdl + "Decimal:" + tde + tdr + data[2] + tde + trn;
+ var row2c = tdl + "Binary:" + tde + tdr + data[3] + tde + tre;
+ 
+ var row3a = tr + tdl + "Multiplier - " + tdn + tde + trn;
+ var row3b = tdl + "Decimal:" + tde + tdr + data[4] + tde + trn;
+ var row3c = tdl + "Binary:" + tde + tdr + data[5] + tde + trn;
+ var row3d = tdl + "Two's Complement:" + tde + tdr + data[6] + tde + tre;
+ 
+ var row45 = tr + trn + tdl + "Steps - " + tdn + tde;
+ 
+ var rows15 = out1 + row1 + row2a + row2b + row2c + row3a + row3c + row3d + row45;
+ 
+ var p = 0;
+ var row6on = "";
+ 
+ while (p < steps.length) {
+  row6on += trn + tdl + steps[p] + tde + tdr + steps[p + 1] + tde;
+  p = p + 2;
  }
+ 
+ var output = rows15 + row6on + tre + te;
+ 
  cs441p1_print(output);
 }   
 function cs441p1_dec2bin(decimal) {
@@ -130,6 +154,8 @@ function cs441p1_boothsAlgorithm(){
  if (product[0] == "1") {
   var dec = parseInt(cs441p1_twosComp(product), 2) + 1;
   dec = 0 - dec;
+ } else {
+  var dec = parseInt(product, 2);
  }
  steps.push("Final Product (Decimal): ");
  steps.push(dec);
