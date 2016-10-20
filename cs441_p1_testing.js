@@ -37,9 +37,12 @@ function cs441p1_prettyPrint() {
 	var outputZ = "- Negative Multiplier -<br/>Binary: " + data[6];
 	var e = "<br/><br/>";
 	var output = bitset + e + outputX + e + outputY + e;
-
-	for (s in steps) {
-		var step = s + "<br />";
+	
+	var s = 0;
+	var step;
+	while (s < steps.length) {
+		step =  steps[s] + steps[s+1] + "<br />";
+		s = s + 2;
 		output += step;
 	}
 
@@ -76,53 +79,56 @@ function cs441p1_twosComp(originalBinary) {
 	}
 	return convertedBinary;
 }
+
+
 function cs441p1_boothAdd(product, multiplier){
 	var newProduct;	
 	var endBit = bit - 1;
-	var upper = product.substring(0,endBit);
+	var upper = product.substring(0, bit);
 	var addU = parseInt(upper, 2);
 	var addM = parseInt(multiplier, 2);
 	var sumD = addU + addM;
 	var sumB = cs441p1_dec2bin(sumD);
 
-	if (sumB.length > endBit) {
-		newProduct = sumB.slice(1,bit) + product(bit);
+	if (sumB.length > bit) {
+		newProduct = sumB.slice(1) + product.slice(bit);
 	} else {
-		newProduct = sumB.slice(0,endBit) + product(bit);
+		newProduct = sumB + product.slice(bit);
 	}
 	return newProduct;
 }
+
+
 function cs441p1_boothsAlgorithm(){
 	var i;
 	var mX = data[3];
 	var mY = data[5];
 	var product = "";
 	var boothBit = 0;
-	var lastBit = bit + bit - 1;
 	var negmY = data[6];
 
 	// Setup binary for Booth's Algorithm (add 0's or 1's to front)
 	for (i = 0; i < bit; i++) {
 		product += mX[0];
-
 	}
 	product += mX;
 	steps.push(product);
 	
-	for (i = 0; i < bit; i++) {
-		if (product[lastBit] > boothBit) {
-			//cs441p1_boothAdd(product, negmY);
+	for (i = 0; i <= bit; i++) {
+		var lastBit = product.slice(-1);
+		if (lastBit > boothBit) {
+			cs441p1_boothAdd(product, negmY);
 			steps.push("Subtract: ");
 			steps.push(product);
-		} else if (product[lastBit] < boothBit) {
-			//cs441p1_boothAdd(product, mY)
+		} else if (lastBit < boothBit) {
+			cs441p1_boothAdd(product, mY)
 			steps.push("Add: ");
 			steps.push(product);
 		}
 		
-		boothBit = product[lastBit];
+		boothBit = lastBit;
 		product = product[0] + product;
-		product.length = bit + bit;
+		product = product.slice(0, -1);
 
 		steps.push("Shift: ");
 		steps.push(product);
