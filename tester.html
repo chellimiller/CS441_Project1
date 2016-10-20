@@ -148,6 +148,7 @@ function cs441p1_boothsAlgorithm(){
  steps.push(product);
  if (product[0] == "1") {
   var dec = parseInt(cs441p1_twosComp(product), 2) + 1;
+  dec = 0 - dec;
  }
  steps.push("Final Product (Decimal): ");
  steps.push(dec);
