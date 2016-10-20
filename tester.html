@@ -17,7 +17,7 @@ data.length = 7;
   5 - Multiplier in binary
   6 - Negative multiplier
  */
-window.steps = ["Starting Out: "];
+window.steps = [];
 
 function cs441p1_print(output) {
  document.getElementById("cs441p1_output").innerHTML = output;
@@ -121,6 +121,7 @@ function cs441p1_boothsAlgorithm(){
 
  }
  product += mX;
+ steps.push("Starting Out: ");
  steps.push(product);
  
  for (i = 0; i < bit; i++) {
@@ -145,8 +146,11 @@ function cs441p1_boothsAlgorithm(){
   
  steps.push("Final Product (Binary): ");
  steps.push(product);
+ if (product[0] == "1") {
+  var dec = parseInt(cs441p1_twosComp(product), 2) + 1;
+ }
  steps.push("Final Product (Decimal): ");
- steps.push(parseInt(product, 2));
+ steps.push(dec);
 } 
 function cs441p1_verify() {
  var exp = bit - 1;
@@ -201,6 +205,9 @@ function cs441p1_submit() {
  y = parseInt(yIN, 10);
  bit = 4;
  set = 0;
+ 
+ cs441p1_reset();
+ 
  if (cs441p1_verify() == true) {
   cs441p1_boothsAlgorithm();
   cs441p1_prettyPrint();
@@ -208,8 +215,8 @@ function cs441p1_submit() {
 }
 function cs441p1_reset() {
  document.getElementById("cs441p1_form").reset();
- data.length = 0;
- data.length = 6;
+ data = [];
+ steps = [];
  cs441p1_print("");
 }
 
