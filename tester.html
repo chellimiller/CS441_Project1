@@ -127,11 +127,11 @@ function cs441p1_boothsAlgorithm(){
   var lastChar = product.slice(-1);
   if (lastChar > boothBit) {
    product = cs441p1_boothAdd(product, negmY);
-   steps.push("Subtract: "+lastChar+" / "+boothBit+" ");
+   steps.push("Subtract: ");
    steps.push(product);
   } else if (lastChar < boothBit) {
    product = cs441p1_boothAdd(product, mY)
-   steps.push("Add: "+lastChar+" / "+boothBit+" ");
+   steps.push("Add: ");
    steps.push(product);
   }
   
@@ -145,6 +145,8 @@ function cs441p1_boothsAlgorithm(){
   
  steps.push("Final Product (Binary): ");
  steps.push(product);
+ steps.push("Final Product (Decimal): ");
+ steps.push(parseInt(product, 2));
 } 
 function cs441p1_verify() {
  var exp = bit - 1;
