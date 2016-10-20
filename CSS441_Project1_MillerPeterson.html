@@ -146,10 +146,13 @@ function cs441p1_boothsAlgorithm(){
   
  steps.push("Final Product (Binary): ");
  steps.push(product);
+ 
+ var dec;
  if (product[0] == "1") {
-  var dec = parseInt(cs441p1_twosComp(product), 2) + 1;
+  dec = parseInt(cs441p1_twosComp(product), 2) + 1;
   dec = 0 - dec;
- }
+ } else {
+  dec = data[2] * data[4];
  steps.push("Final Product (Decimal): ");
  steps.push(dec);
 } 
@@ -204,7 +207,7 @@ function cs441p1_submit() {
  var yIN = input[1].value;
  x = parseInt(xIN, 10);
  y = parseInt(yIN, 10);
- bit = 4;
+ bit = 8;
  set = 0;
  
  cs441p1_reset();
